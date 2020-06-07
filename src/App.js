@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import {
+  Global,
+  Header
+} from './components/Styled';
+import {SessionContainer, BreakContainer} from './components/Range/RangeContainer';
+import Clock from './components/Clock';
+import ActionButtons from './components/ActionButtons';
+import {Provider} from './store'
+import reducer, {initialState} from './reducer';
+import {changeAction} from './helper';
 
 function App() {
+  const gc = React.useReducer(reducer, initialState);
+  const [{mm, ss, session, isSession, intervalId}, d] = gc;
+
+  useEffect(()=> {
+
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider value={gc}>
+      <div className="App">
+        <Global />
+        <Header>Pomodoro Clock</Header>
+        <BreakContainer/>
+        <SessionContainer/>
+        <Clock mm={mm} ss={ss} isSession={isSession} showOnTitle={intervalId} />
+        <ActionButtons/>
+      </div>
+    </Provider>
   );
 }
 
