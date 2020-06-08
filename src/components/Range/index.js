@@ -20,7 +20,7 @@ export default function Range({
         onInput={onChange} />
       <div className="range__buttons">
         <button className="step__buttons" id={decId} onClick={onDecrement} disabled={disabled}>{'<<'}</button>
-        <span className="value__button" id={valId}>{value} mins</span>
+        <span className="value__button" id={valId}>{value}</span>
         <button className="step__buttons" id={incId} onClick={onIncrement} disabled={disabled}>{'>>'}</button>
       </div>
     </StyledRange>
