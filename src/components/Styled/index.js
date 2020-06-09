@@ -5,9 +5,9 @@ export const Global = createGlobalStyle`
     box-sizing: border-box;
   }
   :root {
-    --bg: #c00000;
-    --text: #f8f9fc;
-    --sliderBG: #f7b32d;
+    --bg: #726a95;
+    --text: white;
+    --sliderBG: #a0c1b8;
   }
   body {
     font-family: 'Rubik', sans-serif;
